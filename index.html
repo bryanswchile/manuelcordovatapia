@@ -19,7 +19,7 @@
 
 <link href="./main.d8e0d294.css" rel="stylesheet">
 <style>
- .responsive-container {
+    .responsive-container {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
@@ -48,11 +48,14 @@
       top: 20px;
       right: 20px;
     }
+
     .responsive-container img {
       max-width: 100%;
       height: auto;
       border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      /*box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);*/
+       /* Elimina la sombra */
+      box-shadow: none;
     }
 
     /* Estilos responsivos */
@@ -65,9 +68,20 @@
         font-size: 2.0rem;
       }
 
+      /* Mover la imagen debajo de <p> en pantallas pequeñas */
+      .responsive-container .topright {
+        position: static;
+        margin-top: 20px; /* Espaciado entre el párrafo y la imagen */
+        align-self: center;
+      }
+
+      /* Mantener la resolución de la imagen y centrarla */
       .responsive-container .topright img {
-        width: 30%;
+        width: auto; /* Mantiene el tamaño original de la imagen */
         height: auto;
+        max-width: 50%; /* Limita el ancho máximo para adaptarse a la pantalla */
+        display: block; /* Asegura que la imagen sea tratada como bloque */
+        margin: 0 auto; /* Centra la imagen */
       }
     }
 
@@ -80,9 +94,27 @@
         font-size: 2.0rem;
       }
 
+      /* Mover la imagen debajo de <p> en pantallas aún más pequeñas */
+      .responsive-container .topright {
+        position: static;
+        margin-top: 20px;
+        align-self: center;
+      }
+
+      /* Ajustar el tamaño de la imagen en pantallas más pequeñas */
       .responsive-container .topright img {
-        width: 30%;
-      }  
+        width: auto; /* Mantiene el tamaño original */
+        height: auto;
+        max-width: 70%; /* Limita el tamaño de la imagen aún más */
+        display: block;
+        margin: 0 auto; /* Centra la imagen */
+      }
+    /* Ajustes para pantallas pequeñas */
+    @media (max-width: 768px) {
+      .section-container {
+        padding: 30px 0 20px; /* Reduce el padding solo en pantallas pequeñas */
+      }
+    }      
     }
 </style>
 </head>
