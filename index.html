@@ -89,6 +89,18 @@
       .responsive-container .topright img {
         width: 30%;
       }
+      .responsive-container .topright {
+        position: static;
+        margin-top: 20px;  /* Espaciado entre el párrafo y la imagen */
+        align-self: flex-start;
+      }
+
+      .responsive-container img {
+        width: 50%;  /* Imagen más pequeña en pantallas aún más pequeñas */
+        height: auto;
+        margin: 0 auto;
+        display: block;  /* Asegura que la imagen sea tratada como bloque */
+      }      
     }
 </style>
 </head>
