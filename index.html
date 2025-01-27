@@ -43,12 +43,17 @@
       margin: 10px 0;
     }
 
-    .responsive-container .topright {
+    /*.responsive-container .topright {
       position: absolute;
       top: 20px;
       right: 20px;
-    }
-
+    }*/
+      /* Mueve la imagen debajo de <p> solo en pantallas pequeñas */
+      .responsive-container .topright {
+        position: static;
+        margin-top: 20px;  /* Espaciado entre el párrafo y la imagen */
+        align-self: flex-start;
+      }
     .responsive-container img {
       max-width: 100%;
       height: auto;
