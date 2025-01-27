@@ -83,6 +83,10 @@
         display: block; /* Asegura que la imagen sea tratada como bloque */
         margin: 0 auto; /* Centra la imagen */
       }
+      .section-container {
+    padding: 30px 0 20px; /* Ajuste del padding */
+    min-height: auto; /* Esto asegura que la altura sea adecuada */
+  }      
     }
 
     @media (max-width: 480px) {
@@ -116,7 +120,45 @@
       }
     }      
     }
+    .background-color-layer {
+  clear: both;
+  position: relative;
+  z-index: -1; /* Asegura que este elemento quede detrás */
+  clear: both;
+}    
 </style>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const images = document.querySelectorAll("img");
+    images.forEach((img) => {
+      img.onload = function () {
+        img.style.opacity = "1"; // Muestra la imagen cuando esté lista
+      };
+    });
+  });
+
+// Asegura que las secciones se rendericen correctamente sin mostrar el desplazamiento
+document.addEventListener("DOMContentLoaded", function () {
+  const sections = document.querySelectorAll(".section-container");
+
+  // Guarda la posición inicial del scroll
+  const originalScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+
+  // Deshabilita el scroll temporalmente
+  document.body.style.overflow = "hidden";
+
+  // Desplaza cada sección al viewport sin que sea visible para el usuario
+  sections.forEach((section) => {
+    section.scrollIntoView({ block: "start" });
+  });
+
+  // Restaura la posición inicial y habilita el scroll
+  setTimeout(() => {
+    window.scrollTo(0, originalScrollPosition);
+    document.body.style.overflow = ""; // Reactiva el scroll
+  }, 50); // Ajusta el tiempo según sea necesario
+});
+</script>  
 </head>
 
 <body class="">
@@ -124,7 +166,7 @@
       <h1>Manuel Teodoro Córdova Tapia</h1>
       <p class="classy">Silvester Stallone</p>
       <div class="topright">
-        <img src="./assets/images/wanderers.png" alt="Cinque Terre" width="250" height="300">
+        <img src="./assets/images/wanderers2.png" width="250" height="300" loading="lazy">
       </div>
   </div>
 <!-- Add your content of header -->
